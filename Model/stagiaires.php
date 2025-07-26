@@ -11,12 +11,29 @@ function db_connection()
         return null;
     }
 }
-function Liste_stagiaires() {
+function Liste_stagiaires()
+{
     // global $pdo;
     $pdo = db_connection();
     $stagiaires = $pdo->query("SELECT * FROM stagiaires")->fetchAll(PDO::FETCH_OBJ);
     return $stagiaires;
 }
-function create_stagiaires() {
-  
+function create_stagiaires()
+{
+    extract($_POST);
+    $pdo = db_connection();
+    $sqlState = $pdo->prepare('INSERT INTO stagiaires  VALUES (null ,?,?,?)');
+    $sqlState->execute([$_POST['nom'], $_POST['prenom'], $_POST['Age']]);
+
+    return $sqlState;
+}
+function update_stagiaires(){
+
+}
+function delete_stagiaires($id)
+{
+    $pdo = db_connection();
+    $sqlState = $pdo->prepare('DELETE FROM stagiaires WHERE id = ?');
+    $sqlState->execute([$id]);
+    return $sqlState;
 }

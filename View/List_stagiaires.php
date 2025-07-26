@@ -1,6 +1,9 @@
 <?php
 $title = "Liste des utilisateurs";
 ob_start(); ?>
+<div class="container">
+    <a href="create.php" class="btn btn-primary mb-3 float-end">Ajouter un Stagiaire</a>
+</div>
  <table class="table">
         <thead>
             <tr>

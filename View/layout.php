@@ -11,10 +11,11 @@
     <title><?=  $title; ?></title>
 </head>
 <body>
+    <?php include 'include/nav.php'; ?>
+
     <div class="container">
         <h1><?=  $title; ?></h1>
     </div>
-
     <div class="container">
         <?= $content; ?>
 
